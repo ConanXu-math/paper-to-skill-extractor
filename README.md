@@ -52,6 +52,22 @@ cp -R paper-to-skill-extractor "${CODEX_HOME:-$HOME/.codex}/skills/paper-to-skil
 
 Restart Codex or reload skills if your client requires it.
 
+## Input Format
+
+Cursor users can usually provide a PDF directly and ask the agent to extract skills from it.
+
+Codex users should provide Markdown input for this skill. If your source is a PDF, first convert it to `paper.md`. The recommended workflow is to use this skill together with the PDF-to-Markdown companion skill:
+
+```text
+https://github.com/ConanXu-math/pdf-to-markdown-converter
+```
+
+Typical Codex workflow:
+
+```text
+PDF -> pdf-to-markdown-converter -> paper.md -> paper-to-skill-extractor -> skill cards
+```
+
 ## Usage
 
 Prepare a Markdown paper:
@@ -66,7 +82,7 @@ Then ask Codex to use the skill, for example:
 Use paper-to-skill-extractor on paper.md and write outputs to outputs/my-paper.
 ```
 
-For PDFs, convert to Markdown first. A companion skill is available at:
+For PDFs in Codex, convert to Markdown first. The companion skill is available at:
 
 ```text
 https://github.com/ConanXu-math/pdf-to-markdown-converter
